@@ -1,9 +1,9 @@
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
-vector<string> tokenize(string s, string del = " ")
-{
+vector<string> tokenize(string s, string del = " ") {
     int start = 0;
     int end = s.find(del);
     vector<string> split;

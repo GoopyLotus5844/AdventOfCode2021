@@ -1,11 +1,10 @@
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include "day1.h"
-#include "day2.h"
+#include "test.h"
+#include "day3.h"
+
 using namespace std;
 
 int main() {
-  cout << day2part2();
-  return 0;
-} 
+    cout << day3part1() << endl;
+    return 0;
+}

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.21)
+project(AdventOfCode2021)
+
+set(CMAKE_CXX_STANDARD 17)
+
+add_executable(AdventOfCode2021 main.cpp day1.cpp day1.h day2.cpp day2.h reader.cpp reader.h util.cpp util.h day3.cpp day3.h test.cpp test.h)
