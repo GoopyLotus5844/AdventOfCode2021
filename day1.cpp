@@ -6,7 +6,7 @@
 using namespace std;
 
 int day1part1() {
-    vector<int> lines = readIntLines("input.txt");
+    vector<int> lines = readIntLines("../input.txt");
 
     int count = 0;
     for (int i = 1; i < lines.size(); i++) {
@@ -16,7 +16,7 @@ int day1part1() {
 }
 
 int day1part2() {
-    vector<int> data = readIntLines("input.txt");
+    vector<int> data = readIntLines("../input.txt");
 
     int count = 0;
     for (int i = 3; i < data.size(); i++) {

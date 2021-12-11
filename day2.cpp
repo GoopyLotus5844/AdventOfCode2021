@@ -7,7 +7,7 @@
 using namespace std;
 
 int day2part1() {
-    vector<string> lines = readLines("input.txt");
+    vector<string> lines = readLines("../input.txt");
 
     int pos = 0;
     int depth = 0;
@@ -22,7 +22,7 @@ int day2part1() {
 }
 
 int day2part2() {
-    vector<string> lines = readLines("input.txt");
+    vector<string> lines = readLines("../input.txt");
 
     int pos = 0;
     int depth = 0;
