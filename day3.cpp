@@ -4,10 +4,12 @@
 #include <vector>
 #include <array>
 #include <iostream>
+#include <numeric>
 #include "reader.h"
 #include "day3.h"
+#include "types.h"
 
-#define BITS 5
+#define BITS 12
 
 int day3part1v1(){
     std::vector<std::string> data = readLines("../input.txt");
@@ -46,23 +48,30 @@ int day3part1v2(){
     return (int) (number * (~number & (1 << BITS) - 1));
 }
 
-int day3part2(){
-    std::vector<unsigned int> data = readBinaryLines("../input.txt");
-
-    std::vector<int> indexes(data.size());
-
-    for(int n = 0; n < BITS; n++){
+u32 getRating(std::vector<u32> data, bool common){
+    for(int n = BITS - 1; n >= 0; n--){
+        if(data.size() == 1) break;
 
         unsigned int one = 0;
-        for(int index : indexes){
-            one += (data[index] >> n) & 1;
+        for(u32 line : data){
+            one += (line >> n) & 1;
         }
 
-        bool moreOne = one >= data.size() / 2;
-        for(uint64_t i = indexes.size(); i >= 0; i--){
-            moreOne ^ i;
+        bool moreOne = one >= data.size() - one;
+        for(int i = data.size() - 1; i >= 0; i--){
+            u32 value = data[i];
+            if((value >> n & 1) ^ moreOne ^ !common) {
+                data[i] = data[data.size() - 1];
+                data.pop_back();
+            }
         }
     }
-
-    return 0;
+    return data[0];
 }
+
+int day3part2(){
+    std::vector<unsigned int> data = readBinaryLines("../input.txt");
+    return (int) getRating(data, true) * (int) getRating(data, false);
+}
+
+
