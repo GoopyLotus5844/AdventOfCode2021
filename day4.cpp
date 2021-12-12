@@ -13,6 +13,8 @@
 #include "day4.h"
 #include "types.h"
 
+#define SIZE 5
+
 bool checkWin(std::unordered_map<int, int>& board, std::vector<int>& numbers){
     std::array<int, 12> line{};
 
@@ -27,8 +29,8 @@ bool checkWin(std::unordered_map<int, int>& board, std::vector<int>& numbers){
         if(r + c == 4) line[11]++;
     }
 
-    for(int i = 0; i < 5; i++) {
-        if(line[i] == 5) {
+    for(int i : line) {
+        if(i == SIZE) {
             return true;
         }
     }
@@ -38,19 +40,19 @@ bool checkWin(std::unordered_map<int, int>& board, std::vector<int>& numbers){
 int day4part1(){
     std::vector<std::string> lines = readLines("../input.txt");
     std::vector<int> nums = tokenizeToInt(lines[0], ",");
-    std::vector<std::unordered_map<int, int>> boards(((lines.size() - 1) / 6));
+    std::vector<std::unordered_map<int, int>> boards(((lines.size() - 1) / (SIZE + 1)));
     std::unordered_map<int, int> board;
     std::unordered_map<int, int> cleanBoard = board;
 
     for(int i = 2; i < lines.size(); i++){
-        if(i % 6 == 1) {
-            boards[i / 6 - 1] = board;
+        if(i % (SIZE + 1) == 1) {
+            boards[i / (SIZE + 1) - 1] = board;
             board = cleanBoard;
             continue;
         }
         std::vector<int> row = tokenizeToInt(lines[i], " ");
         for(int n = 0; n < row.size(); n++) {
-            board.insert(std::pair<int, int>(row[n], ((i - 2) % 6) * 5 + n));
+            board.insert(std::pair<int, int>(row[n], ((i - 2) % (SIZE + 1)) * SIZE + n));
         }
     }
     boards[boards.size() - 1] = board;
