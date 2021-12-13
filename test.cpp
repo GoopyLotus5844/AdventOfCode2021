@@ -4,7 +4,10 @@
 #include <iostream>
 #include <array>
 #include <unordered_map>
+#include <vector>
 #include "test.h"
+#include "types.h"
+#include "util.h"
 
 void test(){
     /*std::unordered_map<int, int> thing;
@@ -12,7 +15,12 @@ void test(){
     std::cout << thing[5] << std::endl;
     std::cout << thing[100] << std::endl;*/
 
-    std::array<int, 4> thing {5, 4, 8, 2};
+    /*std::array<int, 4> thing {5, 4, 8, 2};
     int n = thing.back();
-    std::cout << n << std::endl;
+    std::cout << n << std::endl;*/
+
+    std::string thing = "  H ll o there ";
+    std::string del = " ";
+    std::vector<std::string> thing1 = split(thing, del);
+    std::cout << "poggers" << std::endl;
 }

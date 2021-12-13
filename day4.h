@@ -6,5 +6,6 @@
 #define ADVENTOFCODE2021_DAY4_H
 
 int day4part1();
+int day4part2();
 
 #endif //ADVENTOFCODE2021_DAY4_H
