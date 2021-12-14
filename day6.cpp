@@ -2,13 +2,10 @@
 // Created by HPste on 12/12/2021.
 //
 
-#include <iostream>
 #include <vector>
 #include <array>
 #include <string>
-#include <chrono>
 #include "reader.h"
-#include "day5.h"
 #include "util.h"
 #include "types.h"
 
