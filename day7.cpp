@@ -3,7 +3,6 @@
 //
 
 #include <vector>
-#include <array>
 #include <string>
 #include <cmath>
 #include <algorithm>
@@ -23,6 +22,15 @@ int day7part1(){
     return total;
 }
 
+int calcTotal(std::vector<int>& crabs, int n){
+    int total = 0;
+    for(int crab : crabs) {
+        int diff = std::abs(crab - n);
+        total += diff * (diff + 1) / 2;
+    }
+    return total;
+}
+
 int day7part2(){
     std::string input = readLines("../input.txt")[0];
     std::vector<int> crabs = splitToInt(input, ",");
@@ -31,10 +39,14 @@ int day7part2(){
     for(int crab : crabs) sum += crab;
     int avg = sum / (int) crabs.size();
 
-    int total = 0;
-    for(int crab : crabs) {
-        int diff = std::abs(crab - avg);
-        total += diff * (diff + 1) / 2;
+    int t1 = calcTotal(crabs, avg);
+    int t2 = calcTotal(crabs, avg + 1);
+    int step = t2 < t1 ? 1 : -1;
+
+    while(true){
+        avg += step;
+        t2 = calcTotal(crabs, avg);
+        if(t1 < t2) return t1;
+        t1 = t2;
     }
-    return total;
 }
