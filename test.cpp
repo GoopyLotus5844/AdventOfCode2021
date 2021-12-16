@@ -24,8 +24,11 @@ void test(){
     std::vector<std::string> thing1 = split(thing, del);
     std::cout << "poggers" << std::endl;*/
 
-    int *board = new int[10];
+    /*int *board = new int[10];
     board[3] = 5;
     board[9] = 11;
-    for(int i = 0; i < 10; i++) std::cout << board[i];
+    for(int i = 0; i < 10; i++) std::cout << board[i];*/
+
+    int n = true + false + false;
+    std::cout << n << std::endl;
 }
