@@ -4,10 +4,7 @@
 
 #include <vector>
 #include <string>
-#include <cmath>
 #include <array>
-#include <iostream>
-#include <algorithm>
 #include <unordered_map>
 #include "reader.h"
 #include "util.h"
