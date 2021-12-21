@@ -8,7 +8,6 @@
 #include <stack>
 #include <algorithm>
 #include "reader.h"
-#include "day9.h"
 #include "day10.h"
 #include "types.h"
 
