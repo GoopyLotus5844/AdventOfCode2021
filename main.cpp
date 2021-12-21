@@ -11,13 +11,14 @@
 #include "day9.h"
 #include "day10.h"
 #include "day11.h"
+#include "day12.h"
 #include "types.h"
 
 using namespace std;
 
 int main() {
     auto start = std::chrono::high_resolution_clock::now();
-    u64 answer = day11part2();
+    u64 answer = day12part1();
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     std::cout << duration.count() << std::endl;
