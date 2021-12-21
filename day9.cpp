@@ -5,10 +5,7 @@
 #include <vector>
 #include <string>
 #include <array>
-#include <unordered_map>
-#include <iostream>
 #include "reader.h"
-#include "util.h"
 #include "day9.h"
 
 std::vector<std::vector<int>> makeGrid(){
