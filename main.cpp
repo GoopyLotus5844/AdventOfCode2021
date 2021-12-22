@@ -18,7 +18,7 @@ using namespace std;
 
 int main() {
     auto start = std::chrono::high_resolution_clock::now();
-    u64 answer = day12part1();
+    u64 answer = day12part2();
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     std::cout << duration.count() << std::endl;

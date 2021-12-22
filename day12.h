@@ -6,5 +6,6 @@
 #define ADVENTOFCODE2021_DAY12_H
 
 int day12part1();
+int day12part2();
 
 #endif //ADVENTOFCODE2021_DAY12_H
