@@ -5,7 +5,6 @@
 #include <vector>
 #include <string>
 #include <array>
-#include <iostream>
 #include <unordered_map>
 #include <unordered_set>
 #include "reader.h"
@@ -35,18 +34,18 @@ int countPaths2(CaveMap &caves, std::unordered_set<std::string> &pathSet, std::s
     int count = 0;
 
     for(std::string cave : caves[start]){
-        if(cave == "start") continue;
-        bool canRepeatNext = canRepeat;
-
-        if(islower(cave.at(0))){
-            if(pathSet.find(cave) != pathSet.end()){
-                if(canRepeatNext) canRepeatNext = false;
-                else continue;
-            }
+        if(cave == "end") {
+            count++;
+            continue;
         }
+        if(cave == "start") continue;
 
-        if(cave == "end") count++;
-        else count += countPaths2(caves, pathSet, cave, canRepeatNext, canRepeatNext != canRepeat);
+        bool canRepeatNext = canRepeat;
+        if(islower(cave.at(0)) && pathSet.find(cave) != pathSet.end()){
+            if(canRepeatNext) canRepeatNext = false;
+            else continue;
+        }
+        count += countPaths2(caves, pathSet, cave, canRepeatNext, canRepeatNext != canRepeat);
     }
     if(!isRepeat) pathSet.erase(start);
     return count;
